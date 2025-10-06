@@ -102,7 +102,7 @@ app.get('/random-movie', async (req, res) => {
       titulo: movieDetails.data.title,
       resumen: movieDetails.data.overview,
       imagenfondo: movieDetails.data.poster_path ? `https://image.tmdb.org/t/p/w500${movieDetails.data.poster_path}` : null,
-      precio: moviePrice.data, // Procesa el array de precios/items
+      precio: moviePrice.data.price, // Procesa el array de precios/items
       personas: processItemsToText(moviePeople.data) // Procesa los datos de personas
     };
 
