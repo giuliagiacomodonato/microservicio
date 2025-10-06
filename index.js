@@ -97,18 +97,16 @@ app.get('/random-movie', async (req, res) => {
       
       return 'No hay datos disponibles';
     }
-    // Construimos la respuesta con información útil
-    const movieInfo = {
+
+
+    res.json({
+      success: true,
       titulo: movieDetails.data.title,
       resumen: movieDetails.data.overview,
       imagenfondo: movieDetails.data.poster_path ? `https://image.tmdb.org/t/p/w500${movieDetails.data.poster_path}` : null,
       precio: moviePrice.data.price, // Procesa el array de precios/items
       personas: processItemsToText(moviePeople.data) // Procesa los datos de personas
-    };
-
-    res.json({
-      success: true,
-      movie: movieInfo
+    
     });
 
   } catch (error) {
